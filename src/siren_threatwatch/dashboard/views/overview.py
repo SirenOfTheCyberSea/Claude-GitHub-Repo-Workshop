@@ -84,13 +84,23 @@ def render() -> None:
     with a:
         st.subheader("Actor & campaign highlights")
         with session_scope() as s:
+            objs = queries.intel_objects(s)
+            # Most recently active campaigns first (by the source-stated last_seen date), then actors.
+            campaigns = sorted(
+                (o for o in objs if o.kind == "campaign"),
+                key=lambda o: str((o.attributes or {}).get("last_seen", "")),
+                reverse=True,
+            )
             items = [
-                (o.kind, o.name, o.is_synthetic)
-                for o in queries.intel_objects(s)
-                if o.kind in ("threat-actor", "campaign")
-            ]
+                (
+                    f"campaign · last seen {str((o.attributes or {}).get('last_seen', 'n/a'))[:10]}",
+                    o.name,
+                    o.is_synthetic,
+                )
+                for o in campaigns
+            ] + [("threat-actor", o.name, o.is_synthetic) for o in objs if o.kind == "threat-actor"]
         if not items:
-            st.caption("No actors or campaigns yet (MITRE ATT&CK / OTX connectors arrive in later phases).")
+            st.caption("No actors or campaigns yet. Sync MITRE ATT&CK from Settings.")
         for kind, name, syn in items[:8]:
             card(name, None, [esc(kind)], synthetic=syn)
     with b:

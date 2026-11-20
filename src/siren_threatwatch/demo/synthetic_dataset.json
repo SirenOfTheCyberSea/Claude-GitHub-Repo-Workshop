@@ -261,7 +261,7 @@
     {
      "rel_type": "uses",
      "dst_kind": "intel",
-     "dst_key": "attack-pattern:exploit-public-facing-application",
+     "dst_key": "attack-pattern:t1190",
      "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
      "evidence_url": "https://example.com/reports/demo-tidecaller",
      "confidence": 60
@@ -269,7 +269,7 @@
     {
      "rel_type": "uses",
      "dst_kind": "intel",
-     "dst_key": "attack-pattern:data-encrypted-for-impact",
+     "dst_key": "attack-pattern:t1486",
      "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
      "evidence_url": "https://example.com/reports/demo-tidecaller",
      "confidence": 60
@@ -306,7 +306,7 @@
     {
      "rel_type": "uses",
      "dst_kind": "intel",
-     "dst_key": "attack-pattern:phishing",
+     "dst_key": "attack-pattern:t1566",
      "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
      "evidence_url": "https://example.com/reports/demo-gray-lantern",
      "confidence": 60
@@ -314,7 +314,7 @@
     {
      "rel_type": "uses",
      "dst_kind": "intel",
-     "dst_key": "attack-pattern:command-and-scripting-interpreter",
+     "dst_key": "attack-pattern:t1059",
      "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
      "evidence_url": "https://example.com/reports/demo-gray-lantern",
      "confidence": 60

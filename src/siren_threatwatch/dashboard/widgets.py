@@ -44,6 +44,26 @@ def relationships(detail: dict[str, Any]) -> None:
     if not rels:
         st.write("None recorded.")
         return
+    if len(rels) > 15:
+        df = pd.DataFrame(rels)
+        types = sorted(df["rel_type"].unique())
+        pick = st.multiselect("Relationship types", types, default=types, key=f"rels-{id(detail)}")
+        df = df[df["rel_type"].isin(pick)]
+        st.dataframe(
+            df[["src", "rel_type", "dst", "source", "description", "evidence_url"]],
+            hide_index=True,
+            width="stretch",
+            height=min(420, 40 + 35 * len(df)),
+            column_config={
+                "src": "From",
+                "rel_type": "Relationship",
+                "dst": "To",
+                "source": "Source",
+                "description": st.column_config.TextColumn("Source statement", width="large"),
+                "evidence_url": st.column_config.LinkColumn("Evidence", display_text="open"),
+            },
+        )
+        return
     for r in rels:
         meta = [
             f"Source: <b>{esc(r['source'])}</b>",

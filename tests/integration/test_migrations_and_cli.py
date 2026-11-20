@@ -12,7 +12,7 @@ from siren_threatwatch.db.models import Base
 def test_migrations_match_models(tmp_path):
     url = f"sqlite:///{tmp_path / 'm.db'}"
     upgrade_database(url)
-    assert current_revision(url) == "0001"
+    assert current_revision(url) == "0002"
     engine = create_engine(url)
     with engine.connect() as conn:
         diff = compare_metadata(MigrationContext.configure(conn), Base.metadata)

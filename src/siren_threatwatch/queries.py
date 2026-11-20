@@ -117,6 +117,14 @@ def vulnerabilities_df(session: Session, flt: VulnFilter | None = None) -> pd.Da
                 "tags": tags or [],
                 "first_seen_at": v.first_seen_at,
                 "is_synthetic": v.is_synthetic,
+                "cvss_version": v.cvss_version,
+                "cvss_vector": v.cvss_vector,
+                "cvss_metrics": v.cvss_metrics or [],
+                "affected_products": v.affected_products or [],
+                "nvd_status": v.nvd_status,
+                "nvd_last_modified": v.nvd_last_modified,
+                "published_at": v.published_at,
+                "field_sources": v.field_sources or {},
             }
         )
     return pd.DataFrame(rows)

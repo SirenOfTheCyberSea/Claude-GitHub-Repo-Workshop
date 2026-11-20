@@ -48,6 +48,8 @@ def _print_summary(summary: object) -> None:
     print(line)
     if d.get("error"):
         print(f"           reason: {d['error']}")
+    for note in d.get("notes") or []:
+        print(f"           note: {note}")
 
 
 def cmd_ingest(settings: Settings, args: argparse.Namespace) -> int:
@@ -58,7 +60,16 @@ def cmd_ingest(settings: Settings, args: argparse.Namespace) -> int:
         summaries = ingest_all(settings)
     else:
         file = Path(args.from_file) if args.from_file else None
-        summaries = [ingest_source(args.source, settings, local_file=file)]
+        summaries = [
+            ingest_source(
+                args.source,
+                settings,
+                local_file=file,
+                cve_ids=args.cve or None,
+                recent_days=args.days,
+                force=args.force,
+            )
+        ]
     for s in summaries:
         _print_summary(s)
     return 0 if all(s.status in ("success", "partial", "skipped") for s in summaries) else 1
@@ -175,6 +186,7 @@ def cmd_export(settings: Settings, args: argparse.Namespace) -> int:
     with session_scope() as session:
         data = gather(
             session,
+            include_intel=args.include_intel,
             period_days=args.days,
             kev_only=args.kev_only,
             include_synthetic=not args.exclude_synthetic,
@@ -249,9 +261,20 @@ def build_parser() -> argparse.ArgumentParser:
 
     ing = sub.add_parser("ingest", help="collect intelligence from a source")
     ing.add_argument(
-        "--source", default="cisa_kev", help="cisa_kev | synthetic_demo | all (default: cisa_kev)"
+        "--source",
+        default="cisa_kev",
+        help="cisa_kev | nvd | mitre_attack | synthetic_demo | all (default: cisa_kev)",
     )
-    ing.add_argument("--from-file", help="offline import: path to a downloaded KEV JSON file (cisa_kev only)")
+    ing.add_argument(
+        "--from-file", help="offline import of a downloaded file (cisa_kev JSON or ATT&CK STIX bundle)"
+    )
+    ing.add_argument("--cve", nargs="+", metavar="CVE-ID", help="nvd: look up specific CVEs only")
+    ing.add_argument(
+        "--days", type=int, metavar="N", help="nvd: also pull CVEs modified in the last N days (≤120)"
+    )
+    ing.add_argument(
+        "--force", action="store_true", help="mitre_attack: re-import even if the release is unchanged"
+    )
     ing.set_defaults(func=cmd_ingest)
 
     sub.add_parser("sources", help="show configured sources, credential status and health").set_defaults(
@@ -278,6 +301,11 @@ def build_parser() -> argparse.ArgumentParser:
     ex.add_argument("--days", type=int, default=30, help="reporting window in days (0 = all)")
     ex.add_argument("--kev-only", action="store_true")
     ex.add_argument("--exclude-synthetic", action="store_true")
+    ex.add_argument(
+        "--include-intel",
+        action="store_true",
+        help="json/stix: also export actors, campaigns, software, techniques and relationships",
+    )
     ex.set_defaults(func=cmd_export)
 
     sub.add_parser("schedule", help="run recurring ingestion in the foreground").set_defaults(

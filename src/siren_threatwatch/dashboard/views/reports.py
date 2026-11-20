@@ -39,11 +39,21 @@ def render() -> None:
     kev_only = c3.toggle("CISA KEV only")
     bands = c4.multiselect("Priority bands", ["Critical", "High", "Medium", "Low", "Informational"])
     excl_syn = c5.toggle("Exclude synthetic data", value=True)
+    incl_intel = st.toggle(
+        "Include actors / campaigns / software / techniques and relationships (JSON & STIX)",
+        help="A full ATT&CK import adds ~1,800 objects and ~19,000 relationships.",
+    )
     title = st.text_input("Report title", "Siren ThreatWatch Report", max_chars=120)
 
     with session_scope() as s:
         data = gather(
-            s, period_days=days, kev_only=kev_only, bands=bands, include_synthetic=not excl_syn, title=title
+            s,
+            period_days=days,
+            kev_only=kev_only,
+            bands=bands,
+            include_synthetic=not excl_syn,
+            include_intel=incl_intel,
+            title=title,
         )
         content = render_report(data, fmt)
     ext = FORMATS[fmt]

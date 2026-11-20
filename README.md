@@ -8,10 +8,10 @@ No paid services. No API key needed to get started.
 
 ![Overview](docs/screenshots/overview.png)
 
-> **Status: Phase 1 (vertical slice).** CISA KEV collection, the full data model, scoring,
-> watchlists, alerts, reports and all nine dashboard pages are working. NVD, MITRE ATT&CK, abuse.ch,
-> OTX and RSS connectors are **planned, not yet implemented**. They appear as "Planned" in Settings.
-> See [Roadmap](#roadmap).
+> **Status: Phase 2.** CISA KEV, **NVD CVE API 2.0** and **MITRE ATT&CK** collection are working, along
+> with scoring, watchlists, alerts, reports and all nine dashboard pages. abuse.ch, OTX and RSS
+> connectors are **planned, not yet implemented**. They appear as "Planned" in Settings. See
+> [Roadmap](#roadmap).
 
 ---
 
@@ -20,6 +20,12 @@ No paid services. No API key needed to get started.
 - **Collects** the [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
   catalog from CISA's official feed. If that is unreachable it falls back to CISA's official GitHub
   mirror, [`cisagov/kev-data`](https://github.com/cisagov/kev-data).
+- **Enriches** CVEs from the [NVD CVE API 2.0](https://nvd.nist.gov/developers/vulnerabilities): every
+  CVSS assessment (v2, v3.0, v3.1, v4.0, primary and secondary), CWE, affected CPE products and NVD
+  status. All KEV CVEs are enriched in a single `hasKev` query. An API key is optional.
+- **Maps adversaries** from [MITRE ATT&CK](https://github.com/mitre-attack/attack-stix-data) (official
+  STIX 2.1): groups, campaigns, malware, tools and techniques, with aliases, tactics and only the
+  relationships ATT&CK states. CVEs named in ATT&CK entries are linked as textual *mentions*.
 - **Normalises** every record: source URL, publication, observation and ingestion times, external ID,
   confidence, TLP when supplied, and a reference to the raw payload.
 - **De-duplicates** CVEs, indicators and actors **without discarding attribution**. Each source's
@@ -105,7 +111,24 @@ You should see something like:
 [ SUCCESS] cisa_kev: fetched=1786 new=1786 updated=0 unchanged=0 rejected=0 alerts=1  via https://www.cisa.gov/...
 ```
 
-### 6. Open the dashboard
+### 6. (Recommended) Add NVD and MITRE ATT&CK
+
+```bash
+siren ingest --source nvd
+```
+
+This adds CVSS, CWE and affected products to every KEV CVE in one paced request. It takes about 20
+seconds without an API key.
+
+```bash
+siren ingest --source mitre_attack
+```
+
+This downloads the newest Enterprise ATT&CK release (about 55 MB). Later runs skip the download until
+MITRE publishes a new release. To run all real sources in the recommended order, use
+`siren ingest --source all`.
+
+### 7. Open the dashboard
 
 ```bash
 siren dashboard
@@ -116,7 +139,9 @@ to see its cited sources and priority explanation, and use **Reports** to downlo
 
 > No internet access, or behind a strict proxy? Download the KEV JSON in a browser from
 > `https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json`, then import
-> it with `siren ingest --source cisa_kev --from-file known_exploited_vulnerabilities.json`.
+> it with `siren ingest --source cisa_kev --from-file known_exploited_vulnerabilities.json`. ATT&CK
+> works the same way: download `enterprise-attack.json` from the attack-stix-data repository, then run
+> `siren ingest --source mitre_attack --from-file enterprise-attack.json`.
 
 ### Want sample data to explore?
 
@@ -137,11 +162,14 @@ siren purge-demo
 | Command | Purpose |
 |---|---|
 | `siren init` | Create or migrate the database |
-| `siren ingest [--source cisa_kev\|synthetic_demo\|all] [--from-file PATH]` | Collect intelligence |
+| `siren ingest [--source cisa_kev\|nvd\|mitre_attack\|synthetic_demo\|all] [--from-file PATH]` | Collect intelligence |
+| `siren ingest --source nvd --cve CVE-… [CVE-…]` | Look up specific CVEs in NVD |
+| `siren ingest --source nvd --days N` | Also pull every CVE NVD modified in the last N days (≤120) |
+| `siren ingest --source mitre_attack --force` | Re-import ATT&CK even if the release is unchanged |
 | `siren sources` | Configured sources, credential status (set/not set only) and health |
 | `siren score [--explain CVE-ID] [--top N]` | Recompute priorities; show a factor-by-factor explanation |
 | `siren alerts [--all] [--ack ID ...]` | List or acknowledge alerts |
-| `siren export --format md-executive\|md-technical\|json\|csv\|stix [--days N] [--kev-only] [--exclude-synthetic] [--out PATH\|-]` | Export a report |
+| `siren export --format md-executive\|md-technical\|json\|csv\|stix [--days N] [--kev-only] [--exclude-synthetic] [--include-intel] [--out PATH\|-]` | Export a report (`--include-intel` adds actors, techniques and relationships to JSON/STIX) |
 | `siren schedule` | Run recurring ingestion (interval from `SIREN_SCHEDULE_INTERVAL_MINUTES`) |
 | `siren seed-demo` / `siren purge-demo` | Load or remove synthetic demo data |
 | `siren dashboard [--port 8501]` | Launch the dashboard on 127.0.0.1 |
@@ -154,9 +182,9 @@ siren purge-demo
 |---|---|
 | **Overview** | Key metrics, highest computed priorities, newest KEV additions, actor/campaign highlights, ingestion health |
 | **Threat Feed** | Searchable, filterable cards, each with its source citation, timestamps, confidence and TLP |
-| **CVE Explorer** | Filters (KEV, ransomware, band, vendor, status, date); detail tabs for exploitation signals, remediation references, priority explanation, provenance, history and analyst workflow |
+| **CVE Explorer** | Filters (KEV, ransomware, band, vendor, status, date); detail tabs for exploitation signals, every NVD CVSS assessment, affected products, remediation references, priority explanation, per-field provenance, history and analyst workflow. Look up any CVE in NVD on demand. |
 | **IOC Explorer** | Defanged indicators, sightings, confidence, relationships, plus an offline indicator validator |
-| **Threat Actors & Campaigns** | Evidence-backed profiles, aliases, ATT&CK mappings and source-cited relationships |
+| **Threat Actors & Campaigns** | Search ATT&CK groups, campaigns, malware, tools and techniques; aliases, tactics, ATT&CK mappings and source-cited relationships |
 | **Trends & Analytics** | KEV additions over time (by ransomware use), observations by source, vendor and priority distributions |
 | **Watchlist & Alerts** | Watch CVEs, indicators or vendor/product keywords; review and acknowledge alerts |
 | **Reports** | Configure, preview, download or save exports |
@@ -173,17 +201,26 @@ Each CVE's score is the sum of named factors, capped at 100:
 |---|---|---|
 | Listed in CISA KEV | 35 | source-reported |
 | CISA: known ransomware use | 15 | source-reported |
-| CVSS base score (scaled) | 0–30 | computed (missing until NVD enrichment) |
+| CVSS base score (scaled) from NVD | 0–30 | computed |
 | EPSS (scaled) | 0–10 | computed (missing: integration planned) |
 | Published or added ≤30 days / ≤90 days | 10 / 5 | computed |
 | CISA due date within 14 days or passed | 5 | source-reported |
 | Matches your keywords or watchlist | 15 | analyst |
+| Referenced by an actor, campaign or software entry (e.g. ATT&CK) | 5 | source-reported (text reference, not attribution) |
 | Source confidence (scaled) | 0–5 | computed |
 
 Bands: **Critical ≥80**, **High ≥60**, **Medium ≥40**, **Low ≥15**, otherwise Informational. Run
-`siren score --explain CVE-…` or open the *Priority explanation* tab to see the breakdown. Until
-NVD enrichment arrives (Phase 2), real KEV entries have no CVSS input. Their scores top out around 70,
-and "CVSS severity" is listed as missing.
+`siren score --explain CVE-…` or open the *Priority explanation* tab to see the breakdown. KEV listing
+plus a high CVSS score puts most KEV entries in the High band. Within a band, ransomware use, recency,
+due dates, threat references and your own keywords set the order.
+
+### When sources disagree
+
+Each CVE field has an owning source. NVD owns CVSS, products and descriptions; CISA owns KEV fields and
+keeps its vendor/product names over NVD's CPE-derived ones. The *Provenance* tab shows which source
+supplied each field, and every source's original statement is kept. An actor reported by another
+source under a known ATT&CK alias merges into the ATT&CK profile, but only when exactly one profile
+matches. Synthetic demo data never modifies real records.
 
 ## Configuration
 
@@ -195,8 +232,12 @@ See [`.env.example`](.env.example). The most useful settings:
 | `SIREN_ORG_RELEVANT_KEYWORDS` | *(empty)* | Comma-separated vendors/products that matter to you |
 | `SIREN_ALERT_MIN_SCORE` | `60` | Threshold for "new high-priority" alerts |
 | `SIREN_SCHEDULE_INTERVAL_MINUTES` | `360` | `siren schedule` interval |
+| `NVD_API_KEY` | *(empty)* | Optional NVD key ([request one](https://nvd.nist.gov/developers/request-an-api-key)); allows faster request pacing |
+| `SIREN_NVD_REQUEST_INTERVAL_SECONDS` | auto (6.0, or 0.7 with a key) | Pause between NVD requests |
+| `SIREN_NVD_RECENT_DAYS` | `0` | Also sync all CVEs modified in the last N days |
+| `SIREN_MITRE_DOMAINS` | `enterprise-attack` | Comma-separated: `enterprise-attack`, `mobile-attack`, `ics-attack` |
 | `SIREN_HTTP_*` | see file | Timeouts, retries, response size, concurrency |
-| `NVD_API_KEY`, `OTX_API_KEY`, `ABUSECH_AUTH_KEY` | *(empty)* | For future connectors; never logged or displayed |
+| `OTX_API_KEY`, `ABUSECH_AUTH_KEY` | *(empty)* | For Phase 3 connectors; never logged or displayed |
 
 ## Security
 
@@ -269,7 +310,7 @@ tests/unit · tests/integration · tests/fixtures
 | Phase | Scope | Status |
 |---|---|---|
 | 1 | Scaffold, config, DB and migrations, CISA KEV, normalisation, scoring, alerts, reports, dashboard, tests, CI | ✅ Done |
-| 2 | NVD CVE API 2.0 (CVSS, CPE, rate limits, optional key), MITRE ATT&CK STIX, entity relationships | Planned |
+| 2 | NVD CVE API 2.0 (CVSS, CWE, CPE, paced requests, optional key), MITRE ATT&CK STIX, relationships, alias merging, field provenance | ✅ Done |
 | 3 | abuse.ch URLhaus / ThreatFox (Auth-Key), AlienVault OTX (API key), curated RSS allowlist | Planned |
 | 4 | EPSS (official FIRST API), richer correlation, notification channels, UI enhancements | Planned |
 | 5 | Hardening review, authentication guidance and examples, release packaging | Planned |
@@ -282,5 +323,8 @@ credentials stay disabled until those are configured.
 - CISA KEV is published under CC0 1.0 ([license](https://www.cisa.gov/sites/default/files/licenses/kev/license.txt)).
   Its presence in KEV means *CISA* reports exploitation; this tool repeats that claim only with
   attribution.
+- NVD data: this product uses data from the NVD API but is not endorsed or certified by the NVD.
+- MITRE ATT&CK® is a registered trademark of The MITRE Corporation; data used under the
+  [ATT&CK Terms of Use](https://attack.mitre.org/resources/terms-of-use/).
 - The demo dataset is entirely fictional and marked synthetic.
 - Code license: MIT (see `pyproject.toml`).

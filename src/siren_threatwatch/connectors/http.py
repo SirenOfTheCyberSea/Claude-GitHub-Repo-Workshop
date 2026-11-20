@@ -113,6 +113,16 @@ def _retry_after_seconds(value: str | None) -> float | None:
         return None
 
 
+def _error_text(result: HttpResult) -> str:
+    """'HTTP 404' plus the provider's explanatory ``message`` header (NVD uses one), sanitised."""
+    text = f"HTTP {result.status}"
+    message = result.headers.get("message")
+    if message:
+        clean = "".join(ch for ch in message if ch.isprintable())[:300]
+        text += f": {clean}"
+    return text
+
+
 class _DiskCache:
     def __init__(self, directory: Path) -> None:
         self.dir = directory
@@ -150,8 +160,15 @@ class SafeHttpClient:
         sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
         max_requests: int = 200,
         use_cache: bool = True,
+        max_bytes: int | None = None,
+        min_interval: float = 0.0,
+        extra_retry_status: Iterable[int] = (),
     ) -> None:
         self.settings = settings
+        self._max_bytes = max_bytes or settings.max_response_bytes
+        self._min_interval = min_interval  # seconds between request starts (provider rate limits)
+        self._last_request: float | None = None
+        self._retry_status = RETRYABLE_STATUS | frozenset(extra_retry_status)
         self.allowed_hosts = frozenset(h.lower() for h in allowed_hosts)
         self._sleep = sleep
         self._semaphore = asyncio.Semaphore(settings.http_max_concurrency)
@@ -214,12 +231,12 @@ class SafeHttpClient:
                 last_error = HttpFetchError(f"network error: {type(exc).__name__}", url=url)
                 delay = None
             else:
-                if result.status not in RETRYABLE_STATUS:
+                if result.status not in self._retry_status:
                     if result.status >= 400:
-                        raise HttpFetchError(f"HTTP {result.status}", status=result.status, url=url)
+                        raise HttpFetchError(_error_text(result), status=result.status, url=url)
                     return result
                 err_cls = RateLimitedError if result.status == 429 else HttpFetchError
-                last_error = err_cls(f"HTTP {result.status}", status=result.status, url=url)
+                last_error = err_cls(_error_text(result), status=result.status, url=url)
                 delay = _retry_after_seconds(result.headers.get("retry-after"))
             if attempt + 1 >= attempts:
                 break
@@ -245,6 +262,7 @@ class SafeHttpClient:
             if self.requests_made >= self._max_requests:
                 raise RequestBudgetExceededError("per-run request budget exhausted", url=current)
             self.requests_made += 1
+            await self._pace()
             async with self._client.stream("GET", current, headers=headers) as response:
                 if response.status_code in REDIRECT_STATUS:
                     location = response.headers.get("location")
@@ -263,8 +281,18 @@ class SafeHttpClient:
                 )
         raise HttpFetchError("too many redirects", url=url)
 
+    async def _pace(self) -> None:
+        if self._min_interval <= 0:
+            return
+        loop = asyncio.get_running_loop()
+        if self._last_request is not None:
+            wait = self._last_request + self._min_interval - loop.time()
+            if wait > 0:
+                await self._sleep(wait)
+        self._last_request = loop.time()
+
     async def _read_limited(self, response: httpx.Response) -> bytes:
-        limit = self.settings.max_response_bytes
+        limit = self._max_bytes
         declared = response.headers.get("content-length")
         if declared and declared.isdigit() and int(declared) > limit:
             raise ResponseTooLargeError(

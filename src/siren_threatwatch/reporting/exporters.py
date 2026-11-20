@@ -102,6 +102,8 @@ class ReportData:
     alerts: pd.DataFrame
     period_days: int = 30
     notes: list[str] = field(default_factory=list)
+    intel: list[dict[str, Any]] = field(default_factory=list)
+    relationships: list[dict[str, Any]] = field(default_factory=list)
 
     @property
     def has_synthetic(self) -> bool:
@@ -210,7 +212,21 @@ def markdown_technical(data: ReportData, max_rows: int = 100) -> str:
             f"- **Vendor / product:** {md_escape(row.get('vendor'))} / {md_escape(row.get('product'))}"
         )
         cvss = row.get("cvss_score")
-        lines.append(f"- **CVSS:** {cvss if cvss is not None and not pd.isna(cvss) else 'unavailable'}")
+        if cvss is not None and not pd.isna(cvss):
+            lines.append(
+                f"- **CVSS {md_escape(row.get('cvss_version') or '')}:** {cvss} "
+                f"{md_escape(row.get('cvss_severity') or '')} `{str(row.get('cvss_vector') or '').replace('`', '')}`"
+            )
+        else:
+            lines.append("- **CVSS:** unavailable")
+        if row.get("nvd_status"):
+            lines.append(f"- **NVD status:** {md_escape(row['nvd_status'])}")
+        products = row.get("affected_products") or []
+        if products:
+            more = f" (+{len(products) - 5} more)" if len(products) > 5 else ""
+            lines.append(
+                "- **Affected products (NVD CPE):** " + "; ".join(md_escape(p) for p in products[:5]) + more
+            )
         if row.get("kev_listed"):
             lines.append(
                 f"- **CISA KEV:** listed {_jsonable(row.get('kev_date_added'))}; due "
@@ -274,8 +290,24 @@ def _stix_pattern(ioc_type: str, value: str) -> str | None:
     }.get(ioc_type)
 
 
-def to_stix_bundle(vulns: pd.DataFrame, indicators: pd.DataFrame) -> dict[str, Any]:
-    """Build a STIX 2.1 bundle (vulnerability + indicator SDOs) with deterministic IDs."""
+STIX_INTEL_TYPES = {
+    "threat-actor": "intrusion-set",
+    "campaign": "campaign",
+    "malware": "malware",
+    "tool": "tool",
+    "attack-pattern": "attack-pattern",
+}
+
+
+def to_stix_bundle(
+    vulns: pd.DataFrame,
+    indicators: pd.DataFrame,
+    intel: list[dict[str, Any]] | None = None,
+    relationships: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a STIX 2.1 bundle with deterministic IDs: vulnerability and indicator SDOs, plus (optionally)
+    intrusion-set / campaign / malware / tool / attack-pattern SDOs and relationship SROs between
+    exported objects."""
     now = _stix_ts(datetime.now(UTC))
     identity_id = _stix_id("identity", "siren-threatwatch")
     objects: list[dict[str, Any]] = [
@@ -334,6 +366,65 @@ def to_stix_bundle(vulns: pd.DataFrame, indicators: pd.DataFrame) -> dict[str, A
         if row.get("is_synthetic"):
             obj["labels"] = ["synthetic-demo"]
         objects.append(obj)
+    ids: dict[tuple[str, str], str] = {}
+    for o in objects:
+        if o["type"] == "vulnerability":
+            ids[("vulnerability", o["name"])] = o["id"]
+    for row in records_from_df(indicators) if not indicators.empty else []:
+        ids[("indicator", row["entity_key"])] = _stix_id("indicator", row["entity_key"])
+    for item in intel or []:
+        stix_type = STIX_INTEL_TYPES.get(item["kind"])
+        if stix_type is None:
+            continue
+        key = f"{item['kind']}:{item['key']}"
+        obj = {
+            "type": stix_type,
+            "spec_version": "2.1",
+            "id": _stix_id(stix_type, key),
+            "created": _stix_ts(item.get("first_seen_at")),
+            "modified": now,
+            "created_by_ref": identity_id,
+            "name": item["name"],
+        }
+        if item.get("description"):
+            obj["description"] = item["description"]
+        if item.get("aliases") and stix_type in ("intrusion-set", "campaign", "malware", "tool"):
+            obj["aliases"] = list(item["aliases"])
+        if stix_type == "malware":
+            obj["is_family"] = True
+        url = (item.get("attributes") or {}).get("url")
+        if item.get("external_id"):
+            ref = {"source_name": "mitre-attack", "external_id": item["external_id"]}
+            if url:
+                ref["url"] = url
+            obj["external_references"] = [ref]
+        if item.get("is_synthetic"):
+            obj["labels"] = ["synthetic-demo"]
+        objects.append(obj)
+        ids[("intel", key)] = obj["id"]
+    for rel in relationships or []:
+        src = ids.get((rel["src_kind"], rel["src_key"]))
+        dst = ids.get((rel["dst_kind"], rel["dst_key"]))
+        if not src or not dst:
+            continue
+        sro = {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": _stix_id(
+                "relationship", f"{rel['src_key']}|{rel['rel_type']}|{rel['dst_key']}|{rel['source']}"
+            ),
+            "created": now,
+            "modified": now,
+            "created_by_ref": identity_id,
+            "relationship_type": rel["rel_type"],
+            "source_ref": src,
+            "target_ref": dst,
+        }
+        if rel.get("description"):
+            sro["description"] = rel["description"]
+        if rel.get("evidence_url"):
+            sro["external_references"] = [{"source_name": rel["source"], "url": rel["evidence_url"]}]
+        objects.append(sro)
     return {"type": "bundle", "id": f"bundle--{uuid.uuid4()}", "objects": objects}
 
 

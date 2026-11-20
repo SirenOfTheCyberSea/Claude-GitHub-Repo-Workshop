@@ -8,8 +8,9 @@ plus the clearly labelled **synthetic** demo dataset.
 | `overview.png` / `overview-light.png` | Overview (dark and light themes) |
 | `threat-feed.png` | Threat Feed cards with source citations |
 | `cve-explorer.png` | CVE Explorer table |
+| `cve-detail-nvd.png` | CVE detail with every NVD CVSS assessment and KEV data (Log4Shell) |
 | `ioc-explorer.png` | IOC Explorer (defanged, synthetic indicators) |
-| `actors.png` | Threat Actors & Campaigns (synthetic profile) |
+| `actors.png` | ATT&CK group profile (APT38) with technique mappings and tactics |
 | `trends.png` | KEV additions by week and ransomware use |
 | `settings.png` | Sources, credential status, sync history |
 
@@ -18,7 +19,7 @@ plus the clearly labelled **synthetic** demo dataset.
 1. Prepare the data:
 
    ```bash
-   siren ingest --source cisa_kev
+   siren ingest --source all
    ```
 
    Optionally add the demo data:

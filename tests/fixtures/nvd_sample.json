@@ -1,0 +1,571 @@
+{
+ "resultsPerPage": 3,
+ "startIndex": 0,
+ "totalResults": 3,
+ "format": "NVD_CVE",
+ "version": "2.0",
+ "timestamp": "2026-11-20T01:46:48.741",
+ "vulnerabilities": [
+  {
+   "cve": {
+    "id": "CVE-2021-44228",
+    "sourceIdentifier": "security@apache.org",
+    "published": "2021-12-10T10:15:09.143",
+    "lastModified": "2026-08-11T19:33:44.513",
+    "vulnStatus": "Analyzed",
+    "cveTags": [],
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled. From log4j 2.15.0, this behavior has been disabled by default. From version 2.16.0 (along with 2.12.2, 2.12.3, and 2.3.1), this functionality has been completely removed. Note that this vulnerability is specific to log4j-core and does not affect log4net, log4cxx, or other Apache Logging Services projects."
+     },
+     {
+      "lang": "es",
+      "value": "Las caracter\u00edsticas JNDI de Apache Log4j2 2.0-beta9 hasta 2.15.0 (excluyendo las versiones de seguridad 2.12.2, 2.12.3 y 2.3.1) utilizadas en la configuraci\u00f3n, los mensajes de registro y los par\u00e1metros no protegen contra LDAP controlado por un atacante y otros puntos finales relacionados con JNDI. Un atacante que pueda controlar los mensajes de registro o los par\u00e1metros de los mensajes de registro puede ejecutar c\u00f3digo arbitrario cargado desde servidores LDAP cuando la sustituci\u00f3n de la b\u00fasqueda de mensajes est\u00e1 habilitada. A partir de la versi\u00f3n 2.15.0 de log4j, este comportamiento ha sido deshabilitado por defecto. A partir de la versi\u00f3n 2.16.0 (junto con las versiones 2.12.2, 2.12.3 y 2.3.1), esta funcionalidad se ha eliminado por completo. Tenga en cuenta que esta vulnerabilidad es espec\u00edfica de log4j-core y no afecta a log4net, log4cxx u otros proyectos de Apache Logging Services"
+     }
+    ],
+    "metrics": {
+     "cvssMetricV31": [
+      {
+       "source": "nvd@nist.gov",
+       "type": "Primary",
+       "cvssData": {
+        "version": "3.1",
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+        "baseScore": 10.0,
+        "baseSeverity": "CRITICAL",
+        "attackVector": "NETWORK",
+        "attackComplexity": "LOW",
+        "privilegesRequired": "NONE",
+        "userInteraction": "NONE",
+        "scope": "CHANGED",
+        "confidentialityImpact": "HIGH",
+        "integrityImpact": "HIGH",
+        "availabilityImpact": "HIGH"
+       },
+       "exploitabilityScore": 3.9,
+       "impactScore": 6.0
+      },
+      {
+       "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+       "type": "Secondary",
+       "cvssData": {
+        "version": "3.1",
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+        "baseScore": 10.0,
+        "baseSeverity": "CRITICAL",
+        "attackVector": "NETWORK",
+        "attackComplexity": "LOW",
+        "privilegesRequired": "NONE",
+        "userInteraction": "NONE",
+        "scope": "CHANGED",
+        "confidentialityImpact": "HIGH",
+        "integrityImpact": "HIGH",
+        "availabilityImpact": "HIGH"
+       },
+       "exploitabilityScore": 3.9,
+       "impactScore": 6.0
+      }
+     ],
+     "cvssMetricV2": [
+      {
+       "source": "nvd@nist.gov",
+       "type": "Primary",
+       "cvssData": {
+        "version": "2.0",
+        "vectorString": "AV:N/AC:M/Au:N/C:C/I:C/A:C",
+        "baseScore": 9.3,
+        "accessVector": "NETWORK",
+        "accessComplexity": "MEDIUM",
+        "authentication": "NONE",
+        "confidentialityImpact": "COMPLETE",
+        "integrityImpact": "COMPLETE",
+        "availabilityImpact": "COMPLETE"
+       },
+       "baseSeverity": "HIGH",
+       "exploitabilityScore": 8.6,
+       "impactScore": 10.0,
+       "acInsufInfo": false,
+       "obtainAllPrivilege": false,
+       "obtainUserPrivilege": false,
+       "obtainOtherPrivilege": false,
+       "userInteractionRequired": false
+      }
+     ],
+     "ssvcV203": [
+      {
+       "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+       "ssvcData": {
+        "timestamp": "2025-02-04T14:25:34.416117Z",
+        "id": "CVE-2021-44228",
+        "options": [
+         {
+          "exploitation": "active"
+         },
+         {
+          "automatable": "yes"
+         },
+         {
+          "technicalImpact": "total"
+         }
+        ],
+        "role": "CISA Coordinator",
+        "version": "2.0.3"
+       }
+      }
+     ]
+    },
+    "cisaExploitAdd": "2021-12-10",
+    "cisaActionDue": "2021-12-24",
+    "cisaRequiredAction": "For all affected software assets for which updates exist, the only acceptable remediation actions are: 1) Apply updates; OR 2) remove affected assets from agency networks. Temporary mitigations using one of the measures provided at https://www.cisa.gov/uscert/ed-22-02-apache-log4j-recommended-mitigation-measures are only acceptable until updates are available.",
+    "cisaVulnerabilityName": "Apache Log4j2 Remote Code Execution Vulnerability",
+    "weaknesses": [
+     {
+      "source": "security@apache.org",
+      "type": "Secondary",
+      "description": [
+       {
+        "lang": "en",
+        "value": "CWE-20"
+       },
+       {
+        "lang": "en",
+        "value": "CWE-400"
+       },
+       {
+        "lang": "en",
+        "value": "CWE-502"
+       }
+      ]
+     },
+     {
+      "source": "nvd@nist.gov",
+      "type": "Secondary",
+      "description": [
+       {
+        "lang": "en",
+        "value": "CWE-917"
+       }
+      ]
+     }
+    ],
+    "configurations": [
+     {
+      "operator": "AND",
+      "nodes": [
+       {
+        "operator": "OR",
+        "negate": false,
+        "cpeMatch": [
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:o:siemens:6bk1602-0aa12-0tp0_firmware:*:*:*:*:*:*:*:*",
+          "versionEndExcluding": "2.7.0",
+          "matchCriteriaId": "BD64FC36-CC7B-4FD7-9845-7EA1DDB0E627"
+         }
+        ]
+       },
+       {
+        "operator": "OR",
+        "negate": false,
+        "cpeMatch": [
+         {
+          "vulnerable": false,
+          "criteria": "cpe:2.3:h:siemens:6bk1602-0aa12-0tp0:-:*:*:*:*:*:*:*",
+          "matchCriteriaId": "CF99FE8F-40D0-48A8-9A40-43119B259535"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "operator": "AND",
+      "nodes": [
+       {
+        "operator": "OR",
+        "negate": false,
+        "cpeMatch": [
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:o:siemens:6bk1602-0aa22-0tp0_firmware:*:*:*:*:*:*:*:*",
+          "versionEndExcluding": "2.7.0",
+          "matchCriteriaId": "D0012304-B1C8-460A-B891-42EBF96504F5"
+         }
+        ]
+       },
+       {
+        "operator": "OR",
+        "negate": false,
+        "cpeMatch": [
+         {
+          "vulnerable": false,
+          "criteria": "cpe:2.3:h:siemens:6bk1602-0aa22-0tp0:-:*:*:*:*:*:*:*",
+          "matchCriteriaId": "F3F61BCB-64FA-463C-8B95-8868995EDBC0"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "references": [
+     {
+      "url": "http://packetstormsecurity.com/files/165225/Apache-Log4j2-2.14.1-Remote-Code-Execution.html",
+      "source": "security@apache.org",
+      "tags": [
+       "Third Party Advisory",
+       "VDB Entry"
+      ]
+     },
+     {
+      "url": "http://packetstormsecurity.com/files/165260/VMware-Security-Advisory-2021-0028.html",
+      "source": "security@apache.org",
+      "tags": [
+       "Third Party Advisory",
+       "VDB Entry"
+      ]
+     },
+     {
+      "url": "http://packetstormsecurity.com/files/165261/Apache-Log4j2-2.14.1-Information-Disclosure.html",
+      "source": "security@apache.org",
+      "tags": [
+       "Exploit",
+       "Third Party Advisory",
+       "VDB Entry"
+      ]
+     },
+     {
+      "url": "http://packetstormsecurity.com/files/165270/Apache-Log4j2-2.14.1-Remote-Code-Execution.html",
+      "source": "security@apache.org",
+      "tags": [
+       "Exploit",
+       "Third Party Advisory",
+       "VDB Entry"
+      ]
+     },
+     {
+      "url": "http://packetstormsecurity.com/files/165281/Log4j2-Log4Shell-Regexes.html",
+      "source": "security@apache.org",
+      "tags": [
+       "Third Party Advisory",
+       "VDB Entry"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "cve": {
+    "id": "CVE-2025-61932",
+    "sourceIdentifier": "vultures@jpcert.or.jp",
+    "published": "2025-10-20T08:15:33.303",
+    "lastModified": "2026-10-08T22:10:00.563",
+    "vulnStatus": "Analyzed",
+    "cveTags": [],
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "Lanscope Endpoint Manager (On-Premises) (Client program (MR) and Detection agent (DA)) improperly verifies the origin of incoming requests, allowing an attacker to execute arbitrary code by sending specially crafted packets."
+     },
+     {
+      "lang": "es",
+      "value": "Lanscope Endpoint Manager (Local) (programa cliente (MR) y agente de detecci\u00f3n (DA)) verifica incorrectamente el origen de las solicitudes entrantes, permitiendo a un atacante ejecutar c\u00f3digo arbitrario enviando paquetes especialmente dise\u00f1ados."
+     }
+    ],
+    "metrics": {
+     "cvssMetricV40": [
+      {
+       "source": "vultures@jpcert.or.jp",
+       "type": "Secondary",
+       "cvssData": {
+        "version": "4.0",
+        "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+        "baseScore": 9.3,
+        "baseSeverity": "CRITICAL",
+        "attackVector": "NETWORK",
+        "attackComplexity": "LOW",
+        "attackRequirements": "NONE",
+        "privilegesRequired": "NONE",
+        "userInteraction": "NONE",
+        "vulnConfidentialityImpact": "HIGH",
+        "vulnIntegrityImpact": "HIGH",
+        "vulnAvailabilityImpact": "HIGH",
+        "subConfidentialityImpact": "NONE",
+        "subIntegrityImpact": "NONE",
+        "subAvailabilityImpact": "NONE",
+        "exploitMaturity": "NOT_DEFINED",
+        "confidentialityRequirement": "NOT_DEFINED",
+        "integrityRequirement": "NOT_DEFINED",
+        "availabilityRequirement": "NOT_DEFINED",
+        "modifiedAttackVector": "NOT_DEFINED",
+        "modifiedAttackComplexity": "NOT_DEFINED",
+        "modifiedAttackRequirements": "NOT_DEFINED",
+        "modifiedPrivilegesRequired": "NOT_DEFINED",
+        "modifiedUserInteraction": "NOT_DEFINED",
+        "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+        "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+        "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+        "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+        "modifiedSubIntegrityImpact": "NOT_DEFINED",
+        "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+        "Safety": "NOT_DEFINED",
+        "Automatable": "NOT_DEFINED",
+        "Recovery": "NOT_DEFINED",
+        "valueDensity": "NOT_DEFINED",
+        "vulnerabilityResponseEffort": "NOT_DEFINED",
+        "providerUrgency": "NOT_DEFINED"
+       }
+      }
+     ],
+     "cvssMetricV30": [
+      {
+       "source": "vultures@jpcert.or.jp",
+       "type": "Secondary",
+       "cvssData": {
+        "version": "3.0",
+        "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        "baseScore": 9.8,
+        "baseSeverity": "CRITICAL",
+        "attackVector": "NETWORK",
+        "attackComplexity": "LOW",
+        "privilegesRequired": "NONE",
+        "userInteraction": "NONE",
+        "scope": "UNCHANGED",
+        "confidentialityImpact": "HIGH",
+        "integrityImpact": "HIGH",
+        "availabilityImpact": "HIGH"
+       },
+       "exploitabilityScore": 3.9,
+       "impactScore": 5.9
+      }
+     ],
+     "ssvcV203": [
+      {
+       "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+       "ssvcData": {
+        "timestamp": "2025-10-22T03:55:30.675620Z",
+        "id": "CVE-2025-61932",
+        "options": [
+         {
+          "exploitation": "active"
+         },
+         {
+          "automatable": "yes"
+         },
+         {
+          "technicalImpact": "total"
+         }
+        ],
+        "role": "CISA Coordinator",
+        "version": "2.0.3"
+       }
+      }
+     ]
+    },
+    "cisaExploitAdd": "2025-10-22",
+    "cisaActionDue": "2025-11-12",
+    "cisaRequiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+    "cisaVulnerabilityName": "Motex LANSCOPE Endpoint Manager Improper Verification of Source of a Communication Channel Vulnerability",
+    "weaknesses": [
+     {
+      "source": "vultures@jpcert.or.jp",
+      "type": "Secondary",
+      "description": [
+       {
+        "lang": "en",
+        "value": "CWE-940"
+       }
+      ]
+     }
+    ],
+    "configurations": [
+     {
+      "nodes": [
+       {
+        "operator": "OR",
+        "negate": false,
+        "cpeMatch": [
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:a:motex:lanscope_endpoint_manager:*:*:*:*:on-premise:*:*:*",
+          "versionEndExcluding": "9.3.2.7",
+          "matchCriteriaId": "F9AF3F85-064B-469C-B530-7264EF91A04F"
+         },
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:a:motex:lanscope_endpoint_manager:*:*:*:*:on-premise:*:*:*",
+          "versionStartIncluding": "9.3.3.0",
+          "versionEndExcluding": "9.3.3.9",
+          "matchCriteriaId": "99DC2ADE-F5D6-45F9-B529-11C492FCDD31"
+         },
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:a:motex:lanscope_endpoint_manager:*:*:*:*:on-premise:*:*:*",
+          "versionStartIncluding": "9.4.0.0",
+          "versionEndExcluding": "9.4.0.5",
+          "matchCriteriaId": "431F6B9C-8A9C-45FD-B287-E9E1D2B3ECEE"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "references": [
+     {
+      "url": "https://jvn.jp/en/jp/JVN86318557/",
+      "source": "vultures@jpcert.or.jp",
+      "tags": [
+       "Third Party Advisory"
+      ]
+     },
+     {
+      "url": "https://www.motex.co.jp/news/notice/2025/release251020/",
+      "source": "vultures@jpcert.or.jp",
+      "tags": [
+       "Vendor Advisory"
+      ]
+     },
+     {
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-61932",
+      "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      "tags": [
+       "Third Party Advisory",
+       "US Government Resource"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "cve": {
+    "id": "CVE-2024-10441",
+    "sourceIdentifier": "security@synology.com",
+    "published": "2025-03-19T02:15:27.120",
+    "lastModified": "2026-11-19T17:17:51.900",
+    "vulnStatus": "Analyzed",
+    "cveTags": [],
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "Improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) before 1.1-65374 and Synology DiskStation Manager (DSM) before 7.2-64570-4, 7.2.1-69057-6 and 7.2.2-72806-1 allows remote attackers to execute arbitrary code via unspecified vectors."
+     },
+     {
+      "lang": "es",
+      "value": "La vulnerabilidad de codificaci\u00f3n o escape incorrecto de la salida en system plugin daemon en Synology BeeStation Manager (BSM) anterior a 1.1-65374, Synology DiskStation Manager (DSM) anterior a 6.2.4-25556-8, 7.1.1-42962-7, 7.2-64570-4, 7.2.1-69057-6 y 7.2.2-72806-1 y Synology Unified Controller (DSMUC) anterior a 3.1.4-23079 permite a atacantes remotos ejecutar c\u00f3digo arbitrario a trav\u00e9s de vectores no especificados."
+     }
+    ],
+    "metrics": {
+     "cvssMetricV31": [
+      {
+       "source": "security@synology.com",
+       "type": "Secondary",
+       "cvssData": {
+        "version": "3.1",
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        "baseScore": 9.8,
+        "baseSeverity": "CRITICAL",
+        "attackVector": "NETWORK",
+        "attackComplexity": "LOW",
+        "privilegesRequired": "NONE",
+        "userInteraction": "NONE",
+        "scope": "UNCHANGED",
+        "confidentialityImpact": "HIGH",
+        "integrityImpact": "HIGH",
+        "availabilityImpact": "HIGH"
+       },
+       "exploitabilityScore": 3.9,
+       "impactScore": 5.9
+      }
+     ],
+     "ssvcV203": [
+      {
+       "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+       "ssvcData": {
+        "timestamp": "2026-11-19T04:55:30.300141Z",
+        "id": "CVE-2024-10441",
+        "options": [
+         {
+          "exploitation": "active"
+         },
+         {
+          "automatable": "yes"
+         },
+         {
+          "technicalImpact": "total"
+         }
+        ],
+        "role": "CISA Coordinator",
+        "version": "2.0.3"
+       }
+      }
+     ]
+    },
+    "cisaExploitAdd": "2026-11-18",
+    "cisaActionDue": "2026-11-21",
+    "cisaRequiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+    "cisaVulnerabilityName": "Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
+    "weaknesses": [
+     {
+      "source": "security@synology.com",
+      "type": "Secondary",
+      "description": [
+       {
+        "lang": "en",
+        "value": "CWE-116"
+       }
+      ]
+     }
+    ],
+    "configurations": [
+     {
+      "nodes": [
+       {
+        "operator": "OR",
+        "negate": false,
+        "cpeMatch": [
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:o:synology:beestation_os:1.0:-:*:*:*:*:*:*",
+          "matchCriteriaId": "F498216A-5ABD-4DCB-A149-F4D41D9022E5"
+         },
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:o:synology:beestation_os:1.0:65145:*:*:*:*:*:*",
+          "matchCriteriaId": "1006E9A9-86FB-4580-8278-8865B1646A00"
+         },
+         {
+          "vulnerable": true,
+          "criteria": "cpe:2.3:o:synology:beestation_os:1.0:65149:*:*:*:*:*:*",
+          "matchCriteriaId": "254081F3-13E2-40ED-A543-11DA03CEA508"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "references": [
+     {
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_24_20",
+      "source": "security@synology.com",
+      "tags": [
+       "Vendor Advisory"
+      ]
+     },
+     {
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_24_23",
+      "source": "security@synology.com",
+      "tags": [
+       "Vendor Advisory"
+      ]
+     },
+     {
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2024-10441",
+      "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      "tags": [
+       "US Government Resource"
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

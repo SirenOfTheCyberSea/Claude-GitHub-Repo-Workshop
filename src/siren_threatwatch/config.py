@@ -17,7 +17,8 @@ from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 DEFAULT_ALLOWED_HOSTS: frozenset[str] = frozenset(
     {
         "www.cisa.gov",
-        "raw.githubusercontent.com",  # CISA's official mirror: github.com/cisagov/kev-data
+        "raw.githubusercontent.com",  # cisagov/kev-data mirror; mitre-attack/attack-stix-data
+        "services.nvd.nist.gov",  # NVD CVE API 2.0
     }
 )
 
@@ -52,6 +53,24 @@ class Settings(BaseSettings):
         "https://raw.githubusercontent.com/cisagov/kev-data/main/known_exploited_vulnerabilities.json"
     )
 
+    # NVD CVE API 2.0 (API key optional). Behaviour verified against the live API: max 2000 results/page,
+    # max 120-day date ranges, start+end dates required together, errors returned with a `message` header.
+    nvd_enabled: bool = True
+    nvd_api_url: str = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    # Seconds between NVD requests. None = automatic (6.0 without a key, 0.7 with one) — deliberately
+    # conservative pacing, since the documented rate limits could not be re-checked from this environment.
+    nvd_request_interval_seconds: float | None = Field(default=None, ge=0.1, le=60)
+    # Also pull every CVE modified in the last N days (0 = only enrich KEV/tracked CVEs). Max 120 per window.
+    nvd_recent_days: int = Field(default=0, ge=0, le=120)
+    nvd_max_pages: int = Field(default=25, ge=1, le=500)
+    nvd_lookup_limit: int = Field(default=25, ge=0, le=500)
+
+    # MITRE ATT&CK (official STIX 2.1 data, read-only)
+    mitre_enabled: bool = True
+    mitre_index_url: str = "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/index.json"
+    mitre_domains: Annotated[list[str], NoDecode] = Field(default_factory=lambda: ["enterprise-attack"])
+    mitre_max_response_mb: int = Field(default=200, ge=10, le=1000)
+
     # Scheduling
     schedule_interval_minutes: int = Field(default=360, ge=15, le=10080)
 
@@ -80,7 +99,17 @@ class Settings(BaseSettings):
             return None
         return value
 
-    @field_validator("kev_feed_url", "kev_mirror_url")
+    @field_validator("mitre_domains", mode="before")
+    @classmethod
+    def _split_domains(cls, value: object) -> object:
+        allowed = {"enterprise-attack", "mobile-attack", "ics-attack"}
+        if isinstance(value, str):
+            value = [part.strip().lower() for part in value.split(",") if part.strip()]
+        if isinstance(value, list) and not set(value) <= allowed:
+            raise ValueError(f"mitre_domains must be a subset of {sorted(allowed)}")
+        return value
+
+    @field_validator("kev_feed_url", "kev_mirror_url", "nvd_api_url", "mitre_index_url")
     @classmethod
     def _url_must_be_allowlisted(cls, value: str) -> str:
         parts = urlsplit(value)
@@ -101,6 +130,12 @@ class Settings(BaseSettings):
     @property
     def export_dir(self) -> Path:
         return self.data_dir / "exports"
+
+    @property
+    def nvd_interval(self) -> float:
+        if self.nvd_request_interval_seconds is not None:
+            return self.nvd_request_interval_seconds
+        return 0.7 if self.nvd_api_key else 6.0
 
     @property
     def max_response_bytes(self) -> int:

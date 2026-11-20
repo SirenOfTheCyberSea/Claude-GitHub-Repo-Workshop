@@ -3,7 +3,7 @@
 ```
             ┌──────────────── connectors/ ────────────────┐
  Sources →  │ SafeHttpClient (allowlist, retries, limits) │  → untrusted payload
-            │ CisaKevConnector · SyntheticDemoConnector   │
+            │ CisaKev · Nvd · MitreAttack · SyntheticDemo │
             └──────────────────────┬──────────────────────┘
                                    ▼
            normalization/ (Pydantic v2: NormalizedRecord, KEV mapper, IOC validation)
@@ -36,9 +36,30 @@
 | `reporting/` | Exporters and the report builder |
 | `dashboard/` | The Streamlit app, theme, safe rendering components and nine views |
 
-Correlation in Phase 1 is limited to explicit, source-stated relationships (`relationships` table).
-Later phases add NVD (CVSS, CPE), MITRE ATT&CK, abuse.ch, OTX and RSS connectors into the same
-pipeline. Each connector only needs to produce `NormalizedRecord` objects.
+Correlation is limited to explicit, source-stated relationships (`relationships` table). This covers
+ATT&CK `uses`, `attributed-to` and `subtechnique-of`, plus CVE IDs named in ATT&CK descriptions,
+recorded as `mentions`. Phase 3 adds abuse.ch, OTX and RSS connectors into the same pipeline. Each
+connector only needs to produce `NormalizedRecord` objects.
+
+## Merging and provenance
+
+- `Vulnerability.field_sources` records which source set each field. `FIELD_PRECEDENCE` in
+  `db/repository.py` decides who may overwrite what (NVD owns CVSS/CPE/description; CISA owns KEV
+  fields and vendor/product naming).
+- Intel objects from a different source merge into an existing object when a name or alias matches
+  exactly one existing object. Objects from the same source are never merged.
+- ATT&CK techniques are keyed by ATT&CK ID (`attack-pattern:t1566-001`), because technique names are
+  not unique.
+- `sync_state` stores per-source cursors: the ATT&CK release version per domain and the last
+  successful sync.
+
+## Source verification notes
+
+| Source | How the integration was verified |
+|---|---|
+| CISA KEV | Field layout checked against the live feed and `cisagov/kev-data` |
+| NVD | NIST's published response schema plus live API responses. Server-confirmed limits: 2000 results per page, 120-day date windows, start+end dates required together, `hasKev`/`noRejected` flags, errors as HTTP 404 with a `message` header. The documented rate limits and the `apiKey` header name could not be re-read from the build environment, so request pacing is conservative and configurable. |
+| MITRE ATT&CK | Official `attack-stix-data` README, `index.json` and the Enterprise v20.1 bundle |
 
 ## Data model keys
 
@@ -46,7 +67,7 @@ Entities are referenced as `(entity_kind, entity_key)`:
 
 - `("vulnerability", "CVE-2024-1234")`
 - `("indicator", "domain:example.com")`, `("indicator", "url:http://example.com/a")`
-- `("intel", "threat-actor:demo-tidecaller")`, `("intel", "attack-pattern:phishing")`
+- `("intel", "threat-actor:demo-tidecaller")`, `("intel", "attack-pattern:t1566")`
 
 ## Migrations
 

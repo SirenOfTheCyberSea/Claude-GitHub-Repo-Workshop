@@ -20,7 +20,10 @@ rather than a public issue. Don't include live credentials or real victim data i
 ## Controls
 
 **Outbound requests (SSRF and abuse)** — `src/siren_threatwatch/connectors/http.py`
-- HTTPS only, with an explicit per-connector host allowlist. IP-literal hosts, URL user-info and
+- HTTPS only, with an explicit per-connector host allowlist: `www.cisa.gov` and
+  `raw.githubusercontent.com` (KEV mirror, ATT&CK), and `services.nvd.nist.gov`. URLs found inside
+  feed data, such as ATT&CK's release index, are checked against the same allowlist before they are
+  requested. IP-literal hosts, URL user-info and
   non-443 ports are refused.
 - Redirects are followed manually. Each hop is re-validated against the allowlist and the number of
   hops is bounded.
@@ -28,7 +31,9 @@ rather than a public issue. Don't include live credentials or real victim data i
   request budget.
 - Retries with exponential backoff and jitter for transport errors, HTTP 429 and 5xx. `Retry-After` is
   honoured, capped at 120 s.
-- ETag / Last-Modified caching to avoid needless load on providers.
+- ETag / Last-Modified caching to avoid needless load on providers. ATT&CK downloads are skipped when
+  the release version is unchanged. NVD requests are paced (6 s apart without a key) and capped per
+  run.
 - Feed URLs set in `.env` are validated against the allowlist at startup.
 
 **Untrusted content**
@@ -42,6 +47,8 @@ rather than a public issue. Don't include live credentials or real victim data i
 - CSV exports prefix cells starting with `= + - @ | %`, tab or CR with `'` (CWE-1236).
 
 **Secrets**
+- The NVD API key is sent only in a request header, never in the URL, so it can't leak into logs or
+  error messages that include URLs.
 - Secrets are read only from environment variables or `.env`, which is git-ignored, and held as
   `SecretStr`. The UI and CLI show only *whether* a credential is set.
 - A logging filter redacts configured secret values and `key=value`-style tokens. httpx request
@@ -64,5 +71,6 @@ rather than a public issue. Don't include live credentials or real victim data i
 
 - Feed providers are trusted for availability, not for content correctness. A compromised feed could
   inject false records; provenance is kept so they can be traced and purged.
+- Synthetic demo records can never modify real records. Real data replaces synthetic placeholders.
 - Priority scores are heuristics, labelled everywhere as "computed priority — not evidence of
   exploitation".

@@ -137,6 +137,17 @@ class Vulnerability(Base):
     kev_ransomware_use: Mapped[str | None] = mapped_column(String(20), default=None)
     kev_notes: Mapped[str | None] = mapped_column(Text, default=None)
     references: Mapped[list[Any]] = mapped_column(default=list)
+    # NVD enrichment (Phase 2)
+    cvss_metrics: Mapped[list[Any]] = mapped_column(
+        default=list
+    )  # every CVSS metric NVD lists, all versions/sources
+    affected_products: Mapped[list[Any]] = mapped_column(
+        default=list
+    )  # vulnerable CPE match criteria (+ ranges)
+    nvd_status: Mapped[str | None] = mapped_column(String(40), default=None)
+    nvd_last_modified: Mapped[datetime | None] = mapped_column(default=None)
+    # Which source supplied each canonical field ({"cvss_score": "nvd", "vendor": "cisa_kev", ...})
+    field_sources: Mapped[dict[str, Any]] = mapped_column(default=dict)
     published_at: Mapped[datetime | None] = mapped_column(default=None)
     first_seen_at: Mapped[datetime] = mapped_column(default=utcnow, index=True)
     last_seen_at: Mapped[datetime] = mapped_column(default=utcnow)
@@ -171,12 +182,15 @@ class IntelObject(Base):
     __tablename__ = "intel_objects"
     __table_args__ = (UniqueConstraint("kind", "key", name="uq_intel_kind_key"),)
     id: Mapped[int] = mapped_column(primary_key=True)
-    kind: Mapped[str] = mapped_column(String(32), index=True)  # threat-actor|campaign|malware|attack-pattern
+    # threat-actor | campaign | malware | tool | attack-pattern
+    kind: Mapped[str] = mapped_column(String(32), index=True)
     key: Mapped[str] = mapped_column(String(200))
     name: Mapped[str] = mapped_column(String(300))
     aliases: Mapped[list[Any]] = mapped_column(default=list)
     external_id: Mapped[str | None] = mapped_column(String(64), default=None)
     description: Mapped[str | None] = mapped_column(Text, default=None)
+    # Source-specific structured facts, e.g. ATT&CK tactics/platforms/domains, reference URL
+    attributes: Mapped[dict[str, Any]] = mapped_column(default=dict)
     first_seen_at: Mapped[datetime] = mapped_column(default=utcnow)
     last_seen_at: Mapped[datetime] = mapped_column(default=utcnow)
     content_hash: Mapped[str | None] = mapped_column(String(64), default=None)
@@ -185,6 +199,18 @@ class IntelObject(Base):
     @property
     def entity_key(self) -> str:
         return f"{self.kind}:{self.key}"
+
+
+class SyncState(Base):
+    """Per-source cursors (e.g. NVD last successful sync time, ATT&CK release version)."""
+
+    __tablename__ = "sync_state"
+    __table_args__ = (UniqueConstraint("source", "key", name="uq_sync_state"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    source: Mapped[str] = mapped_column(String(64))
+    key: Mapped[str] = mapped_column(String(64))
+    value: Mapped[str | None] = mapped_column(Text, default=None)
+    updated_at: Mapped[datetime] = mapped_column(default=utcnow)
 
 
 class Observation(Base):

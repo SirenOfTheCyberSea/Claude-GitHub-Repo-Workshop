@@ -116,6 +116,22 @@ class _Strict(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
 
+class CvssMetric(_Strict):
+    """One CVSS assessment as listed by NVD (several versions/sources may exist per CVE)."""
+
+    version: str
+    source: str | None = None
+    type: str | None = None  # Primary | Secondary
+    base_score: float | None = Field(default=None, ge=0, le=10)
+    base_severity: str | None = None
+    vector: str | None = None
+
+    @field_validator("version", "source", "type", "base_severity", "vector")
+    @classmethod
+    def _clean(cls, v: str | None) -> str | None:
+        return clean_text(v, 200)
+
+
 class VulnerabilityData(_Strict):
     cve_id: str
     title: str | None = None
@@ -134,13 +150,28 @@ class VulnerabilityData(_Strict):
     kev_ransomware_use: Literal["Known", "Unknown"] | None = None
     kev_notes: str | None = None
     references: list[str] = Field(default_factory=list)
+    cvss_metrics: list[CvssMetric] = Field(default_factory=list)
+    affected_products: list[str] = Field(default_factory=list)
+    nvd_status: str | None = None
+    nvd_last_modified: datetime | None = None
 
     @field_validator("cve_id")
     @classmethod
     def _cve(cls, v: str) -> str:
         return canonical_cve(v)
 
-    @field_validator("title", "vendor", "product", "cvss_vector", "cvss_severity")
+    @field_validator("affected_products")
+    @classmethod
+    def _products(cls, v: list[str]) -> list[str]:
+        out = [c for c in (clean_text(x, 600) for x in v) if c]
+        return list(dict.fromkeys(out))[:200]
+
+    @field_validator("nvd_last_modified")
+    @classmethod
+    def _nvd_utc(cls, v: datetime | None) -> datetime | None:
+        return ensure_utc(v)
+
+    @field_validator("title", "vendor", "product", "cvss_vector", "cvss_severity", "nvd_status")
     @classmethod
     def _short(cls, v: str | None) -> str | None:
         return clean_text(v, 500)
@@ -190,7 +221,7 @@ class IndicatorData(_Strict):
         return f"{self.ioc_type.value}:{self.value}"
 
 
-IntelKind = Literal["threat-actor", "campaign", "malware", "attack-pattern"]
+IntelKind = Literal["threat-actor", "campaign", "malware", "tool", "attack-pattern"]
 
 
 class IntelObjectData(_Strict):
@@ -199,6 +230,7 @@ class IntelObjectData(_Strict):
     aliases: list[str] = Field(default_factory=list)
     external_id: str | None = None
     description: str | None = None
+    attributes: dict[str, Any] = Field(default_factory=dict)
 
     @field_validator("name")
     @classmethod
@@ -220,6 +252,10 @@ class IntelObjectData(_Strict):
 
     @property
     def key(self) -> str:
+        # ATT&CK technique names are not unique (e.g. "Local Account" is T1078.003, T1087.001 and T1136.001),
+        # so techniques are keyed by their ATT&CK ID when one is known.
+        if self.kind == "attack-pattern" and self.external_id:
+            return slugify(self.external_id)
         return slugify(self.name)
 
     @property

@@ -48,6 +48,18 @@ def rescore_all(
             .group_by(Observation.entity_key)
         ).all()
     )
+    threat_refs: dict[str, int] = {}
+    for dst_key, n in session.execute(
+        select(Relationship.dst_key, func.count(func.distinct(Relationship.src_key)))
+        .where(
+            Relationship.src_kind == INTEL,
+            Relationship.dst_kind == VULNERABILITY,
+            # ATT&CK technique pages cite CVEs as generic examples; only actor/campaign/software count.
+            Relationship.src_key.not_like("attack-pattern:%"),
+        )
+        .group_by(Relationship.dst_key)
+    ).all():
+        threat_refs[dst_key] = int(n)
     results: dict[tuple[str, str], PriorityResult] = {}
     for v in session.scalars(select(Vulnerability)):
         results[(VULNERABILITY, v.cve_id)] = score_vulnerability(
@@ -65,6 +77,7 @@ def rescore_all(
             source_confidence=max_conf.get(v.cve_id),
             watched=(VULNERABILITY, v.cve_id) in exact,
             relevant_keywords=keywords,
+            threat_references=threat_refs.get(v.cve_id, 0),
             now=now,
         )
 

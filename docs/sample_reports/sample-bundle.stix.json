@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--008f81ba-e595-4ef7-b3a0-1e8a6f2821bc",
+  "id": "bundle--50b7ce6a-c7f5-4fc6-a43b-1fbc79e1c70b",
   "objects": [
     {
       "type": "identity",
       "spec_version": "2.1",
       "id": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "name": "Siren ThreatWatch (export)",
       "identity_class": "system"
     },
@@ -15,8 +15,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--78a4045c-86cc-5a7a-a23c-d6fc94b98d57",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0003",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Command injection via crafted request parameters.",
@@ -39,8 +39,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--5cd9ee06-6851-52f1-919d-702186e2a016",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0001",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Authentication bypass in the management interface allows remote unauthenticated access.",
@@ -63,8 +63,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--50276801-d43f-5371-bc98-9a4d21a0896e",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0002",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Path traversal permits reading arbitrary files.",
@@ -87,8 +87,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--c4051604-45d2-52f8-9766-f93a3025077a",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0005",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Memory corruption when opening crafted documents.",
@@ -111,8 +111,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--2da439dc-8403-52db-b3d9-d157430fbc60",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0004",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Server-side request forgery in webhook handler.",
@@ -134,8 +134,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--239b1872-390c-537a-b84d-db7cebbc3fc7",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0008",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Stored cross-site scripting in profile fields.",
@@ -157,8 +157,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--f097b7c5-0840-5581-bfa8-2137eeb38027",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0007",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Local privilege escalation through insecure service permissions.",
@@ -180,8 +180,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--bc14848e-6b55-54e9-8736-738665d9ce12",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "CVE-2099-0006",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Hard-coded maintenance credentials (CVSS not yet published).",
@@ -203,13 +203,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--b355f166-0bc7-527d-834b-2d616611437c",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "domain indicator",
       "pattern": "[domain-name:value = 'update-check.example.com']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 75,
       "object_marking_refs": [
@@ -223,13 +223,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--f8daf77e-6162-5e38-b505-58bafa85d32c",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "url indicator",
       "pattern": "[url:value = 'http://update-check.example.com/payload/stage2']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 80,
       "object_marking_refs": [
@@ -243,13 +243,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--acb52dc2-e4b9-58b5-b364-7d50047b04ac",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "ipv4 indicator",
       "pattern": "[ipv4-addr:value = '192.0.2.15']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 80,
       "object_marking_refs": [
@@ -263,13 +263,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--6b115393-abfd-50b8-9ae4-bdfec62986a0",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "sha256 indicator",
       "pattern": "[file:hashes.'SHA-256' = '491d109a65eba57028cc44bf96524b9d81d2d10695d17f5fb1bf25b160a0faac']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 85,
       "object_marking_refs": [
@@ -283,13 +283,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--bf97f20b-af7f-5fad-88b1-ff8988dc6be3",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "domain indicator",
       "pattern": "[domain-name:value = 'login-portal.example.net']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 70,
       "object_marking_refs": [
@@ -303,13 +303,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--cc0a4704-8575-5d2f-914a-4000f9f2fb60",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "url indicator",
       "pattern": "[url:value = 'https://login-portal.example.net/owa/auth?id=demo']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 70,
       "object_marking_refs": [
@@ -323,13 +323,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--9e114c41-bd1d-5822-ac5d-70c1c9a5593c",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "ipv6 indicator",
       "pattern": "[ipv6-addr:value = '2001:db8::bad:1']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 55,
       "object_marking_refs": [
@@ -343,13 +343,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--c170e527-a5d8-5b88-a8fc-e5dabfae30c8",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "ipv4 indicator",
       "pattern": "[ipv4-addr:value = '198.51.100.23']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 65,
       "object_marking_refs": [
@@ -363,13 +363,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--09b32865-82a7-53d3-88ca-ba6cce877d12",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "sha256 indicator",
       "pattern": "[file:hashes.'SHA-256' = '3166440dfe96eca68e1844f06409ec52f1698730bc2ea8d55483abee19f88e57']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 60,
       "object_marking_refs": [
@@ -383,13 +383,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--51eff338-75e9-5453-b2ee-b1333c69afde",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "ipv4 indicator",
       "pattern": "[ipv4-addr:value = '203.0.113.77']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 50,
       "object_marking_refs": [
@@ -403,13 +403,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--d9e80ba2-56db-5055-a7eb-8f8732230183",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "domain indicator",
       "pattern": "[domain-name:value = 'cdn-sync.example.org']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 45,
       "object_marking_refs": [
@@ -423,13 +423,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--1335913c-cbe8-5764-9ced-3ba161247c29",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "url indicator",
       "pattern": "[url:value = 'https://cdn-sync.example.org/js/lib.js']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 45,
       "object_marking_refs": [
@@ -443,13 +443,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--add5e4e1-c985-5042-b423-4443e2df6096",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "ipv4 indicator",
       "pattern": "[ipv4-addr:value = '10.20.30.40']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 30,
       "object_marking_refs": [
@@ -463,13 +463,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--28933c4f-4c5d-5d62-a62b-f70becf10f8a",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "domain indicator",
       "pattern": "[domain-name:value = 'files.invalid-demo.test']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 40,
       "object_marking_refs": [
@@ -483,13 +483,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--439b118e-dd08-5396-8b52-1517bec15580",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "sha1 indicator",
       "pattern": "[file:hashes.'SHA-1' = 'dbffe20992f99d10be623e52ebdd3b869eb230d7']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 40,
       "object_marking_refs": [
@@ -503,13 +503,13 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--3f53a9c6-56cd-5356-b0eb-5e1790bf10bf",
-      "created": "2026-11-20T01:42:15.000Z",
-      "modified": "2026-11-20T01:42:15.000Z",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
       "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
       "name": "md5 indicator",
       "pattern": "[file:hashes.MD5 = '6d80c69464fd0abc56321b89cf5ec2af']",
       "pattern_type": "stix",
-      "valid_from": "2026-11-20T01:42:15.000Z",
+      "valid_from": "2026-11-20T02:11:42.000Z",
       "description": "[SYNTHETIC DEMO DATA — not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
       "confidence": 35,
       "object_marking_refs": [
@@ -517,6 +517,460 @@
       ],
       "labels": [
         "synthetic-demo"
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4a30eeb4-5903-589e-a25a-6cd610cbcbaa",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "Command and Scripting Interpreter",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059"
+        }
+      ],
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--cf00c1c4-db52-55a3-87c3-70de55f6d6d6",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "Data Encrypted for Impact",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486"
+        }
+      ],
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5de94656-aefb-5312-b667-7dd0bb329ad0",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "Exploit Public-Facing Application",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190"
+        }
+      ],
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8499f0a6-b04f-5e73-92ed-2b031e11b900",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "Phishing",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566"
+        }
+      ],
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "campaign",
+      "spec_version": "2.1",
+      "id": "campaign--9d40c82f-d1fe-58b7-bb3f-0e79de98a0e0",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "DEMO Operation Low Tide",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Fictional campaign exploiting edge devices (synthetic).",
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "campaign",
+      "spec_version": "2.1",
+      "id": "campaign--0b8d3c12-38c6-55d4-be1c-0e0431761339",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "DEMO Operation Paper Lamp",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Fictional phishing campaign (synthetic).",
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--a426b2f1-f319-5ef5-a973-427145bee200",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "DEMO LampLoader",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Fictional loader (synthetic).",
+      "is_family": true,
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--e415a24f-62f9-515f-98ad-e3246f53ef62",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "DEMO ShellReef",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Fictional ransomware family (synthetic).",
+      "aliases": [
+        "reef-demo"
+      ],
+      "is_family": true,
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "spec_version": "2.1",
+      "id": "intrusion-set--f75926e1-bfe9-5476-b4cc-9e7e1e0abe13",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "DEMO Gray Lantern",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Fictional espionage-focused intrusion set (synthetic).",
+      "aliases": [
+        "Synthetic Group 2"
+      ],
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "spec_version": "2.1",
+      "id": "intrusion-set--6d22a4b5-735f-5a8b-8266-2160079386d3",
+      "created": "2026-11-20T02:11:38.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "name": "DEMO Tidecaller",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Fictional financially-motivated intrusion set used only to demonstrate the dashboard.",
+      "aliases": [
+        "Synthetic Group 1",
+        "TC-Demo"
+      ],
+      "labels": [
+        "synthetic-demo"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9021f6c8-7733-5661-ab65-7343c57ee82c",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--6d22a4b5-735f-5a8b-8266-2160079386d3",
+      "target_ref": "malware--e415a24f-62f9-515f-98ad-e3246f53ef62",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic report: actor deploys this ransomware.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-tidecaller"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5bcfff97-a6a4-58cf-a3c8-59d9c3375187",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--6d22a4b5-735f-5a8b-8266-2160079386d3",
+      "target_ref": "attack-pattern--5de94656-aefb-5312-b667-7dd0bb329ad0",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic ATT&CK mapping.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-tidecaller"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e3bfbc44-36c5-59cd-9eb3-8b1099d87333",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--6d22a4b5-735f-5a8b-8266-2160079386d3",
+      "target_ref": "attack-pattern--cf00c1c4-db52-55a3-87c3-70de55f6d6d6",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic ATT&CK mapping.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-tidecaller"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--67c4d77d-53fb-5445-b77d-e9a489a6dfaf",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--f75926e1-bfe9-5476-b4cc-9e7e1e0abe13",
+      "target_ref": "malware--a426b2f1-f319-5ef5-a973-427145bee200",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic report: actor uses this loader.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-gray-lantern"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--248f9aae-6385-54e0-aae7-18988b65e3ea",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--f75926e1-bfe9-5476-b4cc-9e7e1e0abe13",
+      "target_ref": "attack-pattern--8499f0a6-b04f-5e73-92ed-2b031e11b900",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic ATT&CK mapping.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-gray-lantern"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da79169e-b77d-5fee-bace-ca908c1513c1",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--f75926e1-bfe9-5476-b4cc-9e7e1e0abe13",
+      "target_ref": "attack-pattern--4a30eeb4-5903-589e-a25a-6cd610cbcbaa",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic ATT&CK mapping.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-gray-lantern"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7fcecbc-5500-52f5-a694-92b87381ba22",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "exploits",
+      "source_ref": "campaign--9d40c82f-d1fe-58b7-bb3f-0e79de98a0e0",
+      "target_ref": "vulnerability--5cd9ee06-6851-52f1-919d-702186e2a016",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic report states the campaign exploited this CVE.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-operation-low-tide"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--42fdb1fc-7a0e-5c82-a17a-483de780bc6f",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "exploits",
+      "source_ref": "campaign--9d40c82f-d1fe-58b7-bb3f-0e79de98a0e0",
+      "target_ref": "vulnerability--78a4045c-86cc-5a7a-a23c-d6fc94b98d57",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic report states the campaign exploited this CVE.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-operation-low-tide"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c47a638-3f03-524a-9b9f-c2f459334d25",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "attributed-to",
+      "source_ref": "campaign--9d40c82f-d1fe-58b7-bb3f-0e79de98a0e0",
+      "target_ref": "intrusion-set--6d22a4b5-735f-5a8b-8266-2160079386d3",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic source attributes with moderate confidence.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-operation-low-tide"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bdb852fb-3bd4-51f8-b238-f4f67648b66d",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "attributed-to",
+      "source_ref": "campaign--0b8d3c12-38c6-55d4-be1c-0e0431761339",
+      "target_ref": "intrusion-set--f75926e1-bfe9-5476-b4cc-9e7e1e0abe13",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic source attributes with low confidence.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/reports/demo-operation-paper-lamp"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f1c6fc8-f69f-50c0-93ae-482bd0ae7755",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--acb52dc2-e4b9-58b5-b364-7d50047b04ac",
+      "target_ref": "campaign--9d40c82f-d1fe-58b7-bb3f-0e79de98a0e0",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic C2 address.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/iocs"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9dee4b45-7d9e-5d75-8450-559bc25c6b93",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "related-to",
+      "source_ref": "indicator--51eff338-75e9-5453-b2ee-b1333c69afde",
+      "target_ref": "indicator--d9e80ba2-56db-5055-a7eb-8f8732230183",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic passive DNS resolution — shared infrastructure is NOT attribution.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/iocs"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef30626b-8289-5542-9279-47ad69508a82",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--b355f166-0bc7-527d-834b-2d616611437c",
+      "target_ref": "campaign--9d40c82f-d1fe-58b7-bb3f-0e79de98a0e0",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic C2 domain.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/iocs"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e0b02d2e-c577-5c25-b9c3-4c2ea039d566",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--bf97f20b-af7f-5fad-88b1-ff8988dc6be3",
+      "target_ref": "campaign--0b8d3c12-38c6-55d4-be1c-0e0431761339",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic phishing domain.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/iocs"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--987bb894-433e-5b90-999b-656ad9705a8b",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--6b115393-abfd-50b8-9ae4-bdfec62986a0",
+      "target_ref": "malware--e415a24f-62f9-515f-98ad-e3246f53ef62",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic sample hash.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/iocs"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14323de3-59de-5b77-89e2-528bc104ed20",
+      "created": "2026-11-20T02:11:42.000Z",
+      "modified": "2026-11-20T02:11:42.000Z",
+      "created_by_ref": "identity--686dd9e0-deed-52ed-98f9-63021c345744",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--09b32865-82a7-53d3-88ca-ba6cce877d12",
+      "target_ref": "malware--a426b2f1-f319-5ef5-a973-427145bee200",
+      "description": "[SYNTHETIC DEMO DATA — not real intelligence] Synthetic sample hash.",
+      "external_references": [
+        {
+          "source_name": "synthetic_demo",
+          "url": "https://example.com/iocs"
+        }
       ]
     }
   ]

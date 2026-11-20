@@ -32,6 +32,7 @@ class ScoringWeights:
     due_date_near: float = 5
     org_relevance: float = 15
     source_confidence_max: float = 5
+    threat_association: float = 5
     # indicators
     ioc_confidence_max: float = 40
     ioc_recent_7d: float = 20
@@ -122,6 +123,7 @@ def score_vulnerability(
     source_confidence: int | None = None,
     watched: bool = False,
     relevant_keywords: list[str] | None = None,
+    threat_references: int = 0,
     now: datetime | None = None,
     weights: ScoringWeights | None = None,
 ) -> PriorityResult:
@@ -229,6 +231,18 @@ def score_vulnerability(
         f.append(
             ScoreFactor(
                 "Organisational relevance", 0, "No match to configured keywords or watchlist.", "analyst"
+            )
+        )
+
+    if threat_references:
+        f.append(
+            ScoreFactor(
+                "Threat activity references",
+                w.threat_association,
+                f"Referenced by {threat_references} actor/campaign/software entr"
+                f"{'y' if threat_references == 1 else 'ies'} (e.g. MITRE ATT&CK). Source text only — not proof "
+                "of attribution or of exploitation against you.",
+                "source-reported",
             )
         )
 
