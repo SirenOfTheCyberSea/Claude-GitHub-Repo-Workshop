@@ -1,0 +1,783 @@
+{
+ "_notice": "SYNTHETIC DEMO DATA. Every record here is fabricated for demonstration. IPs use RFC 5737/3849 documentation ranges, domains use example.* / .test reserved names, CVE IDs use the non-existent year 2099. Do not use for detection or blocking.",
+ "source": "synthetic_demo",
+ "records": [
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0001",
+   "title": "DemoCorp Edge Gateway authentication bypass",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Authentication bypass in the management interface allows remote unauthenticated access.",
+   "source_url": "https://example.com/advisories/cve-2099-0001",
+   "published_offset_days": 3,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0001",
+    "title": "DemoCorp Edge Gateway authentication bypass",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Authentication bypass in the management interface allows remote unauthenticated access.",
+    "vendor": "DemoCorp",
+    "product": "Edge Gateway",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 9.8,
+    "cvss_severity": "CRITICAL",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0001"
+    ],
+    "kev_listed": true,
+    "kev_ransomware_use": "Known",
+    "kev_required_action": "Apply vendor mitigations (synthetic).",
+    "kev_date_added_offset_days": 3,
+    "kev_due_offset_days": -18
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0002",
+   "title": "ExampleSoft FileShare Pro path traversal",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Path traversal permits reading arbitrary files.",
+   "source_url": "https://example.com/advisories/cve-2099-0002",
+   "published_offset_days": 12,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0002",
+    "title": "ExampleSoft FileShare Pro path traversal",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Path traversal permits reading arbitrary files.",
+    "vendor": "ExampleSoft",
+    "product": "FileShare Pro",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 7.5,
+    "cvss_severity": "HIGH",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0002"
+    ],
+    "kev_listed": true,
+    "kev_ransomware_use": "Unknown",
+    "kev_required_action": "Apply vendor mitigations (synthetic).",
+    "kev_date_added_offset_days": 12,
+    "kev_due_offset_days": -9
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0003",
+   "title": "DemoCorp VPN Concentrator command injection",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Command injection via crafted request parameters.",
+   "source_url": "https://example.com/advisories/cve-2099-0003",
+   "published_offset_days": 25,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0003",
+    "title": "DemoCorp VPN Concentrator command injection",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Command injection via crafted request parameters.",
+    "vendor": "DemoCorp",
+    "product": "VPN Concentrator",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 8.8,
+    "cvss_severity": "HIGH",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0003"
+    ],
+    "kev_listed": true,
+    "kev_ransomware_use": "Known",
+    "kev_required_action": "Apply vendor mitigations (synthetic).",
+    "kev_date_added_offset_days": 25,
+    "kev_due_offset_days": 4
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0004",
+   "title": "Placeholder Mail Relay SSRF",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Server-side request forgery in webhook handler.",
+   "source_url": "https://example.com/advisories/cve-2099-0004",
+   "published_offset_days": 6,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0004",
+    "title": "Placeholder Mail Relay SSRF",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Server-side request forgery in webhook handler.",
+    "vendor": "Placeholder Systems",
+    "product": "Mail Relay",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 6.5,
+    "cvss_severity": "MEDIUM",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0004"
+    ]
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0005",
+   "title": "ExampleSoft Office Suite memory corruption",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Memory corruption when opening crafted documents.",
+   "source_url": "https://example.com/advisories/cve-2099-0005",
+   "published_offset_days": 48,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0005",
+    "title": "ExampleSoft Office Suite memory corruption",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Memory corruption when opening crafted documents.",
+    "vendor": "ExampleSoft",
+    "product": "Office Suite",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 7.8,
+    "cvss_severity": "HIGH",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0005"
+    ],
+    "kev_listed": true,
+    "kev_ransomware_use": "Unknown",
+    "kev_required_action": "Apply vendor mitigations (synthetic).",
+    "kev_date_added_offset_days": 48,
+    "kev_due_offset_days": 27
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0006",
+   "title": "Sample Networks Router OS hard-coded credentials",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Hard-coded maintenance credentials (CVSS not yet published).",
+   "source_url": "https://example.com/advisories/cve-2099-0006",
+   "published_offset_days": 2,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0006",
+    "title": "Sample Networks Router OS hard-coded credentials",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Hard-coded maintenance credentials (CVSS not yet published).",
+    "vendor": "Sample Networks",
+    "product": "Router OS",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": null,
+    "cvss_severity": null,
+    "cvss_version": null,
+    "references": [
+     "https://example.com/advisories/cve-2099-0006"
+    ]
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0007",
+   "title": "DemoCorp Endpoint Agent privilege escalation",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Local privilege escalation through insecure service permissions.",
+   "source_url": "https://example.com/advisories/cve-2099-0007",
+   "published_offset_days": 70,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0007",
+    "title": "DemoCorp Endpoint Agent privilege escalation",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Local privilege escalation through insecure service permissions.",
+    "vendor": "DemoCorp",
+    "product": "Endpoint Agent",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 7.0,
+    "cvss_severity": "HIGH",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0007"
+    ]
+   }
+  },
+  {
+   "entity_kind": "vulnerability",
+   "external_id": "CVE-2099-0008",
+   "title": "Fictional Cloud Identity Portal XSS",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Stored cross-site scripting in profile fields.",
+   "source_url": "https://example.com/advisories/cve-2099-0008",
+   "published_offset_days": 15,
+   "confidence": 70,
+   "tlp": "TLP:CLEAR",
+   "vulnerability": {
+    "cve_id": "CVE-2099-0008",
+    "title": "Fictional Cloud Identity Portal XSS",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Stored cross-site scripting in profile fields.",
+    "vendor": "Fictional Cloud",
+    "product": "Identity Portal",
+    "cwes": [
+     "CWE-20"
+    ],
+    "cvss_score": 5.4,
+    "cvss_severity": "MEDIUM",
+    "cvss_version": "3.1",
+    "references": [
+     "https://example.com/advisories/cve-2099-0008"
+    ]
+   }
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "demo-demo-tidecaller",
+   "title": "DEMO Tidecaller",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional financially-motivated intrusion set used only to demonstrate the dashboard.",
+   "source_url": "https://example.com/reports/demo-tidecaller",
+   "published_offset_days": 5,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "threat-actor",
+    "name": "DEMO Tidecaller",
+    "aliases": [
+     "Synthetic Group 1",
+     "TC-Demo"
+    ],
+    "external_id": null,
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional financially-motivated intrusion set used only to demonstrate the dashboard."
+   },
+   "relationships": [
+    {
+     "rel_type": "uses",
+     "dst_kind": "intel",
+     "dst_key": "malware:demo-shellreef",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic report: actor deploys this ransomware.",
+     "evidence_url": "https://example.com/reports/demo-tidecaller",
+     "confidence": 60
+    },
+    {
+     "rel_type": "uses",
+     "dst_kind": "intel",
+     "dst_key": "attack-pattern:exploit-public-facing-application",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
+     "evidence_url": "https://example.com/reports/demo-tidecaller",
+     "confidence": 60
+    },
+    {
+     "rel_type": "uses",
+     "dst_kind": "intel",
+     "dst_key": "attack-pattern:data-encrypted-for-impact",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
+     "evidence_url": "https://example.com/reports/demo-tidecaller",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "demo-demo-gray-lantern",
+   "title": "DEMO Gray Lantern",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional espionage-focused intrusion set (synthetic).",
+   "source_url": "https://example.com/reports/demo-gray-lantern",
+   "published_offset_days": 8,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "threat-actor",
+    "name": "DEMO Gray Lantern",
+    "aliases": [
+     "Synthetic Group 2"
+    ],
+    "external_id": null,
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional espionage-focused intrusion set (synthetic)."
+   },
+   "relationships": [
+    {
+     "rel_type": "uses",
+     "dst_kind": "intel",
+     "dst_key": "malware:demo-lamploader",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic report: actor uses this loader.",
+     "evidence_url": "https://example.com/reports/demo-gray-lantern",
+     "confidence": 60
+    },
+    {
+     "rel_type": "uses",
+     "dst_kind": "intel",
+     "dst_key": "attack-pattern:phishing",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
+     "evidence_url": "https://example.com/reports/demo-gray-lantern",
+     "confidence": 60
+    },
+    {
+     "rel_type": "uses",
+     "dst_kind": "intel",
+     "dst_key": "attack-pattern:command-and-scripting-interpreter",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic ATT&CK mapping.",
+     "evidence_url": "https://example.com/reports/demo-gray-lantern",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "demo-demo-operation-low-tide",
+   "title": "DEMO Operation Low Tide",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional campaign exploiting edge devices (synthetic).",
+   "source_url": "https://example.com/reports/demo-operation-low-tide",
+   "published_offset_days": 11,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "campaign",
+    "name": "DEMO Operation Low Tide",
+    "aliases": [],
+    "external_id": null,
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional campaign exploiting edge devices (synthetic)."
+   },
+   "relationships": [
+    {
+     "rel_type": "exploits",
+     "dst_kind": "vulnerability",
+     "dst_key": "CVE-2099-0001",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic report states the campaign exploited this CVE.",
+     "evidence_url": "https://example.com/reports/demo-operation-low-tide",
+     "confidence": 60
+    },
+    {
+     "rel_type": "exploits",
+     "dst_kind": "vulnerability",
+     "dst_key": "CVE-2099-0003",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic report states the campaign exploited this CVE.",
+     "evidence_url": "https://example.com/reports/demo-operation-low-tide",
+     "confidence": 60
+    },
+    {
+     "rel_type": "attributed-to",
+     "dst_kind": "intel",
+     "dst_key": "threat-actor:demo-tidecaller",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic source attributes with moderate confidence.",
+     "evidence_url": "https://example.com/reports/demo-operation-low-tide",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "demo-demo-operation-paper-lamp",
+   "title": "DEMO Operation Paper Lamp",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional phishing campaign (synthetic).",
+   "source_url": "https://example.com/reports/demo-operation-paper-lamp",
+   "published_offset_days": 14,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "campaign",
+    "name": "DEMO Operation Paper Lamp",
+    "aliases": [],
+    "external_id": null,
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional phishing campaign (synthetic)."
+   },
+   "relationships": [
+    {
+     "rel_type": "attributed-to",
+     "dst_kind": "intel",
+     "dst_key": "threat-actor:demo-gray-lantern",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic source attributes with low confidence.",
+     "evidence_url": "https://example.com/reports/demo-operation-paper-lamp",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "demo-demo-shellreef",
+   "title": "DEMO ShellReef",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional ransomware family (synthetic).",
+   "source_url": "https://example.com/reports/demo-shellreef",
+   "published_offset_days": 17,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "malware",
+    "name": "DEMO ShellReef",
+    "aliases": [
+     "reef-demo"
+    ],
+    "external_id": null,
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional ransomware family (synthetic)."
+   }
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "demo-demo-lamploader",
+   "title": "DEMO LampLoader",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional loader (synthetic).",
+   "source_url": "https://example.com/reports/demo-lamploader",
+   "published_offset_days": 20,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "malware",
+    "name": "DEMO LampLoader",
+    "aliases": [],
+    "external_id": null,
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Fictional loader (synthetic)."
+   }
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "T1190",
+   "title": "Exploit Public-Facing Application",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+   "source_url": "https://example.com/reports/exploit-public-facing-application",
+   "published_offset_days": 23,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "attack-pattern",
+    "name": "Exploit Public-Facing Application",
+    "aliases": [],
+    "external_id": "T1190",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic)."
+   }
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "T1566",
+   "title": "Phishing",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+   "source_url": "https://example.com/reports/phishing",
+   "published_offset_days": 26,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "attack-pattern",
+    "name": "Phishing",
+    "aliases": [],
+    "external_id": "T1566",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic)."
+   }
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "T1486",
+   "title": "Data Encrypted for Impact",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+   "source_url": "https://example.com/reports/data-encrypted-for-impact",
+   "published_offset_days": 29,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "attack-pattern",
+    "name": "Data Encrypted for Impact",
+    "aliases": [],
+    "external_id": "T1486",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic)."
+   }
+  },
+  {
+   "entity_kind": "intel",
+   "external_id": "T1059",
+   "title": "Command and Scripting Interpreter",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic).",
+   "source_url": "https://example.com/reports/command-and-scripting-interpreter",
+   "published_offset_days": 32,
+   "confidence": 60,
+   "tlp": "TLP:CLEAR",
+   "intel": {
+    "kind": "attack-pattern",
+    "name": "Command and Scripting Interpreter",
+    "aliases": [],
+    "external_id": "T1059",
+    "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] ATT&CK technique reference (mapping is synthetic)."
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-ipv4-766b50238381",
+   "title": "Synthetic ipv4 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 2,
+   "confidence": 80,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "ipv4",
+    "value": "192.0.2.15"
+   },
+   "relationships": [
+    {
+     "rel_type": "indicates",
+     "dst_kind": "intel",
+     "dst_key": "campaign:demo-operation-low-tide",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic C2 address.",
+     "evidence_url": "https://example.com/iocs",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-ipv4-bfeb4c619298",
+   "title": "Synthetic ipv4 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 5,
+   "confidence": 65,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "ipv4",
+    "value": "198.51.100.23"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-ipv4-0c25434b09c6",
+   "title": "Synthetic ipv4 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 9,
+   "confidence": 50,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "ipv4",
+    "value": "203.0.113.77"
+   },
+   "relationships": [
+    {
+     "rel_type": "related-to",
+     "dst_kind": "indicator",
+     "dst_key": "domain:cdn-sync.example.org",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic passive DNS resolution \u2014 shared infrastructure is NOT attribution.",
+     "evidence_url": "https://example.com/iocs",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-ipv4-fec9cdeaf025",
+   "title": "Synthetic ipv4 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 20,
+   "confidence": 30,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "ipv4",
+    "value": "10.20.30.40"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-ipv6-5b154077753d",
+   "title": "Synthetic ipv6 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 4,
+   "confidence": 55,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "ipv6",
+    "value": "2001:db8::bad:1"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-domain-8cbbfdf8190f",
+   "title": "Synthetic domain indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 1,
+   "confidence": 75,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "domain",
+    "value": "update-check.example.com"
+   },
+   "relationships": [
+    {
+     "rel_type": "indicates",
+     "dst_kind": "intel",
+     "dst_key": "campaign:demo-operation-low-tide",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic C2 domain.",
+     "evidence_url": "https://example.com/iocs",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-domain-489a8f82a5a0",
+   "title": "Synthetic domain indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 3,
+   "confidence": 70,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "domain",
+    "value": "login-portal[.]example[.]net"
+   },
+   "relationships": [
+    {
+     "rel_type": "indicates",
+     "dst_kind": "intel",
+     "dst_key": "campaign:demo-operation-paper-lamp",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic phishing domain.",
+     "evidence_url": "https://example.com/iocs",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-domain-561068bdcd9f",
+   "title": "Synthetic domain indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 14,
+   "confidence": 45,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "domain",
+    "value": "cdn-sync.example.org"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-domain-29491843e356",
+   "title": "Synthetic domain indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 30,
+   "confidence": 40,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "domain",
+    "value": "files.invalid-demo.test"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-url-173ce29fa2b1",
+   "title": "Synthetic url indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 1,
+   "confidence": 80,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "url",
+    "value": "hxxp://update-check.example[.]com/payload/stage2"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-url-e944d69a963e",
+   "title": "Synthetic url indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 3,
+   "confidence": 70,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "url",
+    "value": "https://login-portal.example.net/owa/auth?id=demo"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-url-68b09383aa6f",
+   "title": "Synthetic url indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 14,
+   "confidence": 45,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "url",
+    "value": "hxxps://cdn-sync.example[.]org/js/lib.js"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-sha256-22c8b127a31e",
+   "title": "Synthetic sha256 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 2,
+   "confidence": 85,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "sha256",
+    "value": "491d109a65eba57028cc44bf96524b9d81d2d10695d17f5fb1bf25b160a0faac"
+   },
+   "relationships": [
+    {
+     "rel_type": "indicates",
+     "dst_kind": "intel",
+     "dst_key": "malware:demo-shellreef",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic sample hash.",
+     "evidence_url": "https://example.com/iocs",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-sha256-66fb60d6262b",
+   "title": "Synthetic sha256 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 8,
+   "confidence": 60,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "sha256",
+    "value": "3166440dfe96eca68e1844f06409ec52f1698730bc2ea8d55483abee19f88e57"
+   },
+   "relationships": [
+    {
+     "rel_type": "indicates",
+     "dst_kind": "intel",
+     "dst_key": "malware:demo-lamploader",
+     "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Synthetic sample hash.",
+     "evidence_url": "https://example.com/iocs",
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-md5-deb7dfb7343e",
+   "title": "Synthetic md5 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 60,
+   "confidence": 35,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "md5",
+    "value": "6d80c69464fd0abc56321b89cf5ec2af"
+   }
+  },
+  {
+   "entity_kind": "indicator",
+   "external_id": "demo-ioc-sha1-276ed63a42c7",
+   "title": "Synthetic sha1 indicator",
+   "description": "[SYNTHETIC DEMO DATA \u2014 not real intelligence] Indicator fabricated for demonstration; documentation/reserved ranges only.",
+   "source_url": "https://example.com/iocs",
+   "published_offset_days": 40,
+   "confidence": 40,
+   "tlp": "TLP:GREEN",
+   "indicator": {
+    "ioc_type": "sha1",
+    "value": "dbffe20992f99d10be623e52ebdd3b869eb230d7"
+   }
+  }
+ ]
+}

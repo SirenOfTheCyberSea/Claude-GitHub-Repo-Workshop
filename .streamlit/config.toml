@@ -1,0 +1,48 @@
+# Siren ThreatWatch — Streamlit configuration.
+# SECURITY: the dashboard binds to localhost only. Do not change `address` to 0.0.0.0 without
+# putting an authenticating TLS reverse proxy in front of it (see README "Network exposure").
+
+[server]
+address = "127.0.0.1"
+headless = true
+enableXsrfProtection = true
+enableCORS = true
+maxUploadSize = 5
+
+[browser]
+gatherUsageStats = false
+serverAddress = "localhost"
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = false
+
+[runner]
+magicEnabled = false
+
+# Default theme is dark; users can switch to light via the "⋮ > Settings" menu.
+[theme]
+base = "dark"
+font = "sans-serif"
+
+[theme.dark]
+primaryColor = "#2EC4B6"
+backgroundColor = "#0B1426"
+secondaryBackgroundColor = "#13213D"
+textColor = "#E8EDF5"
+linkColor = "#5FE0D3"
+borderColor = "#2A3A5C"
+
+[theme.dark.sidebar]
+backgroundColor = "#0F1B33"
+
+[theme.light]
+primaryColor = "#0E7C73"
+backgroundColor = "#F7F8FB"
+secondaryBackgroundColor = "#E9EDF4"
+textColor = "#14213D"
+linkColor = "#0B6E66"
+borderColor = "#C9D1E0"
+
+[theme.light.sidebar]
+backgroundColor = "#EEF1F7"

@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siren-threatwatch"
+version = "0.1.0"
+description = "Defensive Cyber Threat Intelligence (CTI) collection, correlation and dashboard platform."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Siren ThreatWatch contributors" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Security",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "streamlit>=1.46,<2",
+  "sqlalchemy>=2.0,<3",
+  "alembic>=1.13,<2",
+  "pydantic>=2.7,<3",
+  "pydantic-settings>=2.4,<3",
+  "httpx>=0.27,<1",
+  "apscheduler>=3.10,<4",
+  "pandas>=2.2",
+  "plotly>=5.20",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.1"]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.23",
+  "respx>=0.21",
+  "ruff>=0.5",
+  "mypy>=1.10",
+]
+
+[project.scripts]
+siren = "siren_threatwatch.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+siren_threatwatch = ["demo/*.json", "migrations/*.py", "migrations/versions/*.py", "migrations/script.py.mako"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF"]
+# E501: the formatter wraps code; long user-facing strings are allowed.
+# RUF001: UI text intentionally uses typographic characters (×, –, ℹ️).
+ignore = ["S101", "RUF012", "E501", "RUF001"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+packages = ["siren_threatwatch"]
+mypy_path = "src"
+ignore_missing_imports = true
+warn_unused_ignores = true
+check_untyped_defs = true
+plugins = ["pydantic.mypy"]
